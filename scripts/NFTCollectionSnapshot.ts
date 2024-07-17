@@ -71,7 +71,7 @@ export async function run(provider: NetworkProvider) {
         console.log(`#${i} ${address.toString()}`);
         const nft = provider.open(NFTItem.createFromAddress(address));
         const nftData = await nft.getData();
-        if (!nftData) {
+        if (!nftData.init) {
             continue;
         }
         const owner = nftData.owner.toString();
